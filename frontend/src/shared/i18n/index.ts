@@ -1,0 +1,5 @@
+export { errorText, useI18n } from './context'
+export type { Translate } from './context'
+export { LOCALES } from './dictionaries'
+export type { Key, Locale } from './dictionaries'
+export { I18nProvider } from './I18nProvider'

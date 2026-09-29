@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: safestep
+      POSTGRES_PASSWORD: safestep
+      POSTGRES_DB: safestep
+    ports:
+      - "${DB_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U safestep"]
+      interval: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      SAFESTEP_DATABASE_URL: postgresql+asyncpg://safestep:safestep@db:5432/safestep
+      SAFESTEP_TEST_DATABASE_URL: postgresql+asyncpg://safestep:safestep@db:5432/safestep_test
+      SAFESTEP_CORS_ORIGINS: '["http://localhost:${WEB_PORT:-3000}","http://localhost:5173"]'
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-8001}:8000"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "${WEB_PORT:-3000}:80"
+
+volumes:
+  pgdata:

@@ -1,0 +1,22 @@
+[project]
+name = "safestep-backend"
+version = "0.1.0"
+description = "SafeStep: real-time hold + step-up check at Confirm"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "dishka>=1.10.1",
+    "fastapi>=0.141.1",
+    "pydantic-settings>=2.15.0",
+    "sqlalchemy[asyncio]>=2.1.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+]

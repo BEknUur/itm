@@ -1,0 +1,13 @@
+
+.claude/
+.venv/
+__pycache__/
+node_modules/
+dist/
+.pytest_cache/
+
+SafeStep.docx
+SIS3.docx
+SIS4.docx
+__pycache__/
+.env
