@@ -1,8 +1,13 @@
 # SafeStep browser verification
 
-These checks use **local simulated payments only**. They create demonstration
+These checks use **simulated payments only**. By default they permit local URLs.
+They create demonstration
 records but never clear the application database. Do not run them against a real
 bank deployment. Results are written into `SIS 10-11/evidence/`.
+
+For your own hosted Railway/Vercel demo, explicitly set `ALLOW_REMOTE_DEMO=1`
+and supply its HTTPS `APP_URL` / `API_URL`; see `DEPLOYMENT.md`. This opt-in is not
+application authentication and does not permit testing a third-party site.
 
 ## Setup
 

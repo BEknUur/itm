@@ -2,6 +2,10 @@
 
 Date: 11 November 2026. Product: SafeStep academic demonstration MVP.
 
+The evidence below records SIS implementation commit **`fdfebd9`**. Later hosting
+configuration changes may add tests/files; they do not change these historical
+results. See `DEPLOYMENT.md` at the repository root for Railway/Vercel setup.
+
 The code now implements the two selected improvements and **CR-01 Payment
 Prefix Search and Status Filtering** described in the team's eleven Word
 documents. The supplied Word/PowerPoint originals were preserved. Beknur is the
@@ -97,5 +101,6 @@ not silently declared complete:
 - Commercial values and six-week schedule in the supplied offer/contract remain
   hypothetical adaptation estimates, not actual elapsed development effort.
 
-For the final source commit use `git log -1 --oneline`; evidence is included in
-that commit. No external bank acceptance, paid contract or instructor grade is claimed.
+The verified SIS source and evidence are in commit `fdfebd9`; use
+`git log -1 --oneline` to see later deployment follow-ups. No external bank
+acceptance, paid contract or instructor grade is claimed.

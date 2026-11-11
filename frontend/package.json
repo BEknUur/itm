@@ -3,8 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": { "node": "22.x" },
   "scripts": {
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "configure:vercel": "node scripts/configure-vercel.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

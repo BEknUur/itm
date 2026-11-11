@@ -39,6 +39,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         allow_headers=["*"],
     )
 
+    @app.middleware("http")
+    async def never_cache_demo_api(request: Request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/api/"):
+            # External rewrites must not cache a payment's old state or audit.
+            response.headers["Cache-Control"] = "no-store"
+            response.headers["CDN-Cache-Control"] = "no-store"
+            response.headers["Vercel-CDN-Cache-Control"] = "no-store"
+        return response
+
     @app.exception_handler(DomainError)
     async def domain_error(_: Request, exc: DomainError):
         return JSONResponse({"detail": str(exc)}, status_code=_STATUS.get(type(exc), 400))

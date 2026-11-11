@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
-import { localURL, saveResults } from './browser.mjs'
+import { demoURL, saveResults } from './browser.mjs'
 import { mkdir } from 'node:fs/promises'
 import { evidence } from './browser.mjs'
 
-const api = localURL(process.env.API_URL ?? 'http://localhost:18001')
+const api = demoURL(process.env.API_URL ?? 'http://localhost:18001')
 await mkdir(evidence, { recursive: true })
 const cases = []
 const result = { phase: 'updated-api', timestamp: new Date().toISOString(), base_url: api, cases }

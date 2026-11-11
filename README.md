@@ -1,5 +1,7 @@
 # SafeStep
 
+Деплой Railway + Vercel: [`DEPLOYMENT.md`](DEPLOYMENT.md).
+
 Задерживаем рискованный платёж в момент Confirm на 30 минут и запрашиваем подтверждение в приложении, которое мошенник по телефону пройти не может.
 Цикл: **Confirm → Score → Hold → Step-up / Fast-release**.
 

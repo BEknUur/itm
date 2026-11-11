@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
-import { evidence, localURL, openBrowser, saveResults } from './browser.mjs'
+import { evidence, demoURL, openBrowser, saveResults } from './browser.mjs'
 
-const app = localURL(process.env.APP_URL ?? 'http://localhost:13000')
-const api = localURL(process.env.API_URL ?? 'http://localhost:18001')
+const app = demoURL(process.env.APP_URL ?? 'http://localhost:13000')
+const api = demoURL(process.env.API_URL ?? 'http://localhost:18001')
 const browser = await openBrowser()
 const cases = []
 const errors = []

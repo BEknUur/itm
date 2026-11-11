@@ -11,3 +11,7 @@ SIS3.docx
 SIS4.docx
 __pycache__/
 .env
+.env.*
+!.env.example
+.vercel/
+.railway/

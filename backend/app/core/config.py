@@ -1,4 +1,4 @@
-from pydantic import Field
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -17,3 +17,12 @@ class Settings(BaseSettings):
     large_p2p_amount: float = 500_000  # KZT
     failed_otp_min: int = 2
     max_step_up_attempts: int = 3
+
+    @field_validator("database_url", "test_database_url", mode="before")
+    @classmethod
+    def async_postgres_url(cls, value: str) -> str:
+        # Railway's PostgreSQL reference is a regular URI; our engine uses asyncpg.
+        for prefix in ("postgres://", "postgresql://"):
+            if value.startswith(prefix):
+                return "postgresql+asyncpg://" + value[len(prefix):]
+        return value
