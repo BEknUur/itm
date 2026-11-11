@@ -1,0 +1,12 @@
+Command: uv run pytest -q tests/test_flows.py tests/test_risk_rules.py
+Scope: original ten cases plus eight operator-reason regression cases.
+Database: isolated safestep_test on localhost:55433.
+
+..................                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/beknur/ibm/backend/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+18 passed, 1 warning in 2.04s

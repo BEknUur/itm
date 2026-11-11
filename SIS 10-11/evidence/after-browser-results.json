@@ -1,0 +1,71 @@
+{
+  "phase": "updated-product",
+  "timestamp": "2026-11-11T09:28:48.289Z",
+  "browser": "Firefox headless",
+  "app_url": "http://localhost:13000",
+  "api_url": "http://localhost:18001",
+  "cases": [
+    {
+      "name": "Customer workspace hides technical demo controls",
+      "status": "PASS"
+    },
+    {
+      "name": "Routine payment is sent",
+      "status": "PASS"
+    },
+    {
+      "name": "Risky payment is held and survives reload",
+      "status": "PASS"
+    },
+    {
+      "name": "Warning GET failure offers Retry; recovery sends no decision",
+      "status": "PASS"
+    },
+    {
+      "name": "CR-01 starts Held; whole-field prefix and no-match work",
+      "status": "PASS"
+    },
+    {
+      "name": "CR-01 Clear Filters resets query and selects All",
+      "status": "PASS"
+    },
+    {
+      "name": "Blank operator reason blocked; typed reason appears in audit",
+      "status": "PASS"
+    },
+    {
+      "name": "CR-01 query/status retained through a real polling response",
+      "status": "PASS"
+    },
+    {
+      "name": "Visible audit controls expose the explicit operator reason",
+      "status": "PASS"
+    },
+    {
+      "name": "Operator cancellation and combined prefix/status filtering work in UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Kazakh search/status/Clear controls work without changing filter semantics",
+      "status": "PASS"
+    },
+    {
+      "name": "Analytics uses real API; errors recover",
+      "status": "PASS"
+    },
+    {
+      "name": "Demo mode keeps four scenarios and technical parameters",
+      "status": "PASS"
+    },
+    {
+      "name": "Customer mobile layout fits 375px; Kazakh navigation works",
+      "status": "PASS"
+    },
+    {
+      "name": "Stale saved payment is cleared after authoritative server 404",
+      "status": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "status": "PASS"
+}

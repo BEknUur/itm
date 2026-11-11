@@ -1,6 +1,7 @@
-from datetime import datetime
+from datetime import date, datetime
+import re
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.domain.entities import PaymentStatus
 
@@ -58,6 +59,14 @@ class AgentDecisionIn(BaseModel):
     agent: str = Field(min_length=1)
     reason: str = Field(min_length=1)
 
+    @field_validator("agent", "reason")
+    @classmethod
+    def explicit_nonblank_text(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("An explicit nonblank value is required")
+        return value
+
 
 class AuditEventOut(_Out):
     id: str
@@ -77,3 +86,36 @@ class IncidentOut(_Out):
     signals: list[str]
     reason: str
     created_at: datetime
+
+
+class AnalyticsQuery(BaseModel):
+    start_date: date | None = None
+    end_date: date | None = None
+
+    @field_validator("start_date", "end_date", mode="before")
+    @classmethod
+    def iso_date_only(cls, value):
+        if isinstance(value, str) and not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value):
+            raise ValueError("Use an ISO date in YYYY-MM-DD format")
+        return value
+
+
+class DailyAnalyticsOut(_Out):
+    date: date
+    total: int
+    held: int
+    released: int
+    cancelled: int
+
+
+class OperationsAnalyticsOut(_Out):
+    start_date: date
+    end_date: date
+    total_payments: int
+    held_payments: int
+    current_held: int
+    released_payments: int
+    cancelled_payments: int
+    cancelled_amount: float
+    average_resolution_seconds: float | None
+    daily: list[DailyAnalyticsOut]

@@ -1,4 +1,7 @@
+import { workspaceKk, workspaceRu } from './workspace'
+
 const ru = {
+  ...workspaceRu,
   'app.tagline': 'Проверка и удержание рискованного платежа в момент подтверждения',
   'app.loop.confirm': 'Подтверждение',
   'app.loop.score': 'Оценка риска',
@@ -18,7 +21,7 @@ const ru = {
   'outcome.RELEASED.title': 'Перевод подтверждён',
   'outcome.RELEASED.text': 'Подтверждён на устройстве владельца или сотрудником контакт-центра.',
   'outcome.CANCELLED.title': 'Перевод остановлен',
-  'outcome.CANCELLED.text': 'Деньги не покинули счёт. Инцидент передан в Антифрод-центр.',
+  'outcome.CANCELLED.text': 'Учебный перевод отменён. Инцидент доступен в локальном макете NAFC.',
 
   'form.customer': 'Клиент',
   'form.device': 'Вход с устройства',
@@ -40,7 +43,7 @@ const ru = {
 
   'stepUp.push': 'Push-запрос на {device}. Подтвердить может только доверенный телефон владельца.',
 
-  'decision.reason': 'Причина (необязательно)',
+  'decision.reason': 'Укажите причину решения',
   'decision.release': 'Отпустить платёж',
   'decision.cancel': 'Отменить как мошенничество',
   'decision.defaultRelease': 'клиент подтвердил по телефону, платёж настоящий',
@@ -93,6 +96,7 @@ export type Key = keyof typeof ru
 
 // Record<Key, string> makes tsc fail if a Kazakh string is missing.
 const kk: Record<Key, string> = {
+  ...workspaceKk,
   'app.tagline': 'Растау сәтінде тәуекелді төлемді тексеру және ұстап тұру',
   'app.loop.confirm': 'Растау',
   'app.loop.score': 'Тәуекелді бағалау',
@@ -112,7 +116,7 @@ const kk: Record<Key, string> = {
   'outcome.RELEASED.title': 'Аударым расталды',
   'outcome.RELEASED.text': 'Иесінің құрылғысында немесе байланыс орталығының қызметкері растады.',
   'outcome.CANCELLED.title': 'Аударым тоқтатылды',
-  'outcome.CANCELLED.text': 'Ақша шоттан шыққан жоқ. Оқиға Антифрод орталығына жіберілді.',
+  'outcome.CANCELLED.text': 'Оқу аударымы тоқтатылды. Оқиға жергілікті NAFC макетінде қолжетімді.',
 
   'form.customer': 'Клиент',
   'form.device': 'Кірген құрылғы',
@@ -134,7 +138,7 @@ const kk: Record<Key, string> = {
 
   'stepUp.push': '{device} құрылғысына push-сұрау. Тек иесінің сенімді телефоны раста алады.',
 
-  'decision.reason': 'Себебі (міндетті емес)',
+  'decision.reason': 'Шешім себебін көрсетіңіз',
   'decision.release': 'Төлемді босату',
   'decision.cancel': 'Алаяқтық деп тоқтату',
   'decision.defaultRelease': 'клиент телефон арқылы растады, төлем нақты',

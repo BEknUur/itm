@@ -1,0 +1,16 @@
+Command: npm run build
+
+
+> frontend@0.0.0 build
+> tsc -b && vite build
+
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 67 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.94 kB │ gzip:  0.55 kB
+dist/assets/index-Cn8TG7Zf.css   16.99 kB │ gzip:  4.46 kB
+dist/assets/index-Dui3Dcg4.js   272.73 kB │ gzip: 83.74 kB
+
+✓ built in 239ms

@@ -1,0 +1,17 @@
+{
+  "phase": "baseline",
+  "source_commit": "2115a8c",
+  "timestamp": "2026-11-11T09:05:02.202Z",
+  "browser": "Firefox headless",
+  "base_url": "http://localhost:4173",
+  "refresh": {
+    "held_before_reload": 1,
+    "held_lost_after_reload": true
+  },
+  "warning_failure": {
+    "method": "Playwright intercept warning GET with HTTP503",
+    "loading_visible": true,
+    "retry_buttons": 0
+  },
+  "note": "Only simulated payments; browser failures injected by QA; no actual bank outage."
+}

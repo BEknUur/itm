@@ -21,6 +21,7 @@ from app.application.interfaces import (
     TransactionManager,
 )
 from app.application.use_cases.audit import ExportAuditCsv, GetAuditTrail, ListIncidents
+from app.application.use_cases.analytics import GetOperationsAnalytics
 from app.application.use_cases.fast_release import CancelHold, ListHolds, ListPayments, ReleaseHold
 from app.application.use_cases.payments import (
     ConfirmPayment,
@@ -114,6 +115,7 @@ class UseCaseProvider(Provider):
         GetAuditTrail,
         ExportAuditCsv,
         ListIncidents,
+        GetOperationsAnalytics,
     )
 
 

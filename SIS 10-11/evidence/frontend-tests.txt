@@ -1,0 +1,100 @@
+Command: npm test
+
+
+> frontend@0.0.0 test
+> node --experimental-strip-types --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: NF-01 customer prefix is case insensitive and trims query
+ok 1 - NF-01 customer prefix is case insensitive and trims query
+  ---
+  duration_ms: 1.686928
+  type: 'test'
+  ...
+# Subtest: NF-02 payee prefix is case insensitive and trims query
+ok 2 - NF-02 payee prefix is case insensitive and trims query
+  ---
+  duration_ms: 0.166927
+  type: 'test'
+  ...
+# Subtest: NF-03 customer substrings do not match
+ok 3 - NF-03 customer substrings do not match
+  ---
+  duration_ms: 0.120252
+  type: 'test'
+  ...
+# Subtest: NF-04 inner words and partial interior strings do not match
+ok 4 - NF-04 inner words and partial interior strings do not match
+  ---
+  duration_ms: 0.206114
+  type: 'test'
+  ...
+# Subtest: NF-05 full fields match
+ok 5 - NF-05 full fields match
+  ---
+  duration_ms: 0.113124
+  type: 'test'
+  ...
+# Subtest: NF-06 Held
+ok 6 - NF-06 Held
+  ---
+  duration_ms: 0.140746
+  type: 'test'
+  ...
+# Subtest: NF-07 Sent
+ok 7 - NF-07 Sent
+  ---
+  duration_ms: 0.087404
+  type: 'test'
+  ...
+# Subtest: NF-08 Released
+ok 8 - NF-08 Released
+  ---
+  duration_ms: 0.075087
+  type: 'test'
+  ...
+# Subtest: NF-09 Cancelled
+ok 9 - NF-09 Cancelled
+  ---
+  duration_ms: 0.219064
+  type: 'test'
+  ...
+# Subtest: NF-10 text AND status
+ok 10 - NF-10 text AND status
+  ---
+  duration_ms: 0.420815
+  type: 'test'
+  ...
+# Subtest: NF-11 unknown query returns empty
+ok 11 - NF-11 unknown query returns empty
+  ---
+  duration_ms: 0.204876
+  type: 'test'
+  ...
+# Subtest: NF-12 cleared/whitespace query and All return every record
+ok 12 - NF-12 cleared/whitespace query and All return every record
+  ---
+  duration_ms: 0.131859
+  type: 'test'
+  ...
+# Subtest: NF-13 empty input, order and no mutation
+ok 13 - NF-13 empty input, order and no mutation
+  ---
+  duration_ms: 0.320094
+  type: 'test'
+  ...
+# Subtest: NF-14 refreshed status respected without changing filters
+ok 14 - NF-14 refreshed status respected without changing filters
+  ---
+  duration_ms: 0.136278
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 102.643532

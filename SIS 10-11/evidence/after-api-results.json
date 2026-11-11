@@ -1,0 +1,72 @@
+{
+  "phase": "updated-api",
+  "timestamp": "2026-11-11T09:25:18.156Z",
+  "base_url": "http://localhost:18001",
+  "cases": [
+    {
+      "name": "Routine transfer: score zero, SENT, no hold deadline",
+      "status": "PASS"
+    },
+    {
+      "name": "Risky payment held; four warning languages; present in queue",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown device rejected three times; trusted attempt then locked",
+      "status": "PASS"
+    },
+    {
+      "name": "Simulated trusted-device approval releases a fresh hold",
+      "status": "PASS"
+    },
+    {
+      "name": "Customer denial cancels and writes mock incident plus audit chain",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 release: reject \"\" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 release: reject \" \" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 release: reject \"\\t\\n\" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 release: reject \"   \\t  \" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 cancel: reject \"\" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 cancel: reject \" \" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 cancel: reject \"\\t\\n\" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 cancel: reject \"   \\t  \" without state/audit/outbox mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 release: preserve trimmed operator reason and reject double decision",
+      "status": "PASS"
+    },
+    {
+      "name": "ISS-06 cancel: preserve trimmed operator reason and reject double decision",
+      "status": "PASS"
+    },
+    {
+      "name": "Audit CSV export and unknown-payment 404",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

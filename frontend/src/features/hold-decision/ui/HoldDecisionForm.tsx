@@ -12,11 +12,14 @@ export function HoldDecisionForm({ payment, agent, onDone }: Props) {
   const [busy, setBusy] = useState(false)
 
   async function decide(decision: HoldDecision) {
+    if (!reason.trim() || !agent.trim()) {
+      setError(t('decision.required'))
+      return
+    }
     setBusy(true)
     setError(null)
     try {
-      const fallback = t(decision === 'release' ? 'decision.defaultRelease' : 'decision.defaultCancel')
-      await decideHold(payment.id, decision, agent || 'agent', reason.trim() || fallback)
+      await decideHold(payment.id, decision, agent.trim(), reason.trim())
       onDone()
     } catch (e) {
       setError(errorText(e, t))
@@ -27,14 +30,14 @@ export function HoldDecisionForm({ payment, agent, onDone }: Props) {
 
   return (
     <div className="decision">
-      <input placeholder={t('decision.reason')} value={reason} onChange={(e) => setReason(e.target.value)} />
+      <label className="decision__reason">{t('decision.reasonLabel')}<input required placeholder={t('decision.reason')} value={reason} onChange={(e) => setReason(e.target.value)} /></label>
       <button className="btn btn--primary btn--sm" disabled={busy} onClick={() => decide('release')}>
         {t('decision.release')}
       </button>
       <button className="btn btn--danger btn--sm" disabled={busy} onClick={() => decide('cancel')}>
         {t('decision.cancel')}
       </button>
-      {error && <span className="error">{error}</span>}
+      {error && <span className="error" role="alert">{error}</span>}
     </div>
   )
 }

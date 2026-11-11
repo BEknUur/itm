@@ -1,0 +1,66 @@
+{
+  "recorded_at": "2026-11-11T09:16:01.381393+00:00",
+  "purpose": "Preserved teammate-supplied originals; content claims remain subject to final working-product verification.",
+  "files": [
+    {
+      "file": "1. Test Cases and Testing Results.docx",
+      "bytes": 41536,
+      "sha256": "d5a83ceebfec67f8bb09610509b24ba0e338f1399ef7ce85abccce75c0274048"
+    },
+    {
+      "file": "10. Commercial Offer.docx",
+      "bytes": 41457,
+      "sha256": "6e0fa76d4547d3a639067920341ee6c2402a61fbedd37f6adfdaf28ba44ebb26"
+    },
+    {
+      "file": "11. Simplified Fixed-Price Contrac.docx",
+      "bytes": 41728,
+      "sha256": "0fbff0bb2c04799bbb628971eae3ffb634213366d22e2167d3bb3d224ddbee19"
+    },
+    {
+      "file": "2. Updated Issue Log.docx",
+      "bytes": 41404,
+      "sha256": "9056e8b8b18bd46a71b9d9d277723b7e058227519db828ff72fb68f670c695e0"
+    },
+    {
+      "file": "3. Technical Debt List.docx",
+      "bytes": 40012,
+      "sha256": "eabd13a8233f590fce09deaad7a9dac74d852cc5c735df3a1d776dcf62b35a9c"
+    },
+    {
+      "file": "4. Improved Product : MVP : Functional Prototype.docx",
+      "bytes": 1005653,
+      "sha256": "424c387fb22b145360797515b9445cb02c381cbfea0568149895965ad553871a"
+    },
+    {
+      "file": "5. Updated User Stories and Product Backlog.docx",
+      "bytes": 581955,
+      "sha256": "1277a6c6464234f3dbcb936e81b8ea02a7dd272628138bf1ec24f5cbc26c201a"
+    },
+    {
+      "file": "6. Change Request Document.docx",
+      "bytes": 40493,
+      "sha256": "15f96cb249ee78360be8405bc2eee0a930046ec93c42aff7f082e5b0b11bbc1c"
+    },
+    {
+      "file": "7. Change Impact Analysis.docx",
+      "bytes": 40424,
+      "sha256": "ae97e904e552f32b477041bc870c13ea0c6bdfb03d1f4775bb8854e494fa1fee"
+    },
+    {
+      "file": "8. Implemented New Feature.docx",
+      "bytes": 650307,
+      "sha256": "36ca164c2539eb64b1c8b2f6824a9f4088a0964da14a58ff794fb5bd404ccffe"
+    },
+    {
+      "file": "9. New Feature Testing Report.docx",
+      "bytes": 40770,
+      "sha256": "9163d886aa1b7e3e402cbc1a1fadd7ea02d1648d35e26307935c3e59dcda9c6b"
+    },
+    {
+      "file": "SIS10-11.pptx",
+      "bytes": 2971663,
+      "sha256": "cc9a112a07b4380a57bda7758bfe7358436497b613ea934d8dc2cde7e6b7573f"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 """End-to-end: Confirm -> Score -> Hold -> Step-up / Fast-release, against Postgres."""
 
+import pytest
+
 FRAUD = {
     "customer_id": "aigerim",
     "payee": "KZ99 Safe account",
@@ -73,3 +75,20 @@ def test_agent_fast_release_and_double_decision_rejected(client):
 def test_unknown_ids_return_404(client):
     assert client.get("/api/payments/nope").status_code == 404
     assert client.post("/api/payments/confirm", json={**FRAUD, "customer_id": "nope"}).status_code == 404
+
+
+@pytest.mark.parametrize("action", ["release", "cancel"])
+@pytest.mark.parametrize("reason", ["", " ", "\t\n", "   \t  "])
+def test_agent_requires_explicit_reason_without_side_effects(client, action, reason):
+    p = confirm(client)
+    before_payment = client.get(f"/api/payments/{p['id']}").json()
+    before_audit = client.get(f"/api/audit/{p['id']}").json()
+    before_incidents = client.get("/api/nafc/incidents").json()
+    response = client.post(
+        f"/api/agent/holds/{p['id']}/{action}",
+        json={"agent": "Dana", "reason": reason},
+    )
+    assert response.status_code == 422
+    assert client.get(f"/api/payments/{p['id']}").json() == before_payment
+    assert client.get(f"/api/audit/{p['id']}").json() == before_audit
+    assert client.get("/api/nafc/incidents").json() == before_incidents

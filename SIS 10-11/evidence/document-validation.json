@@ -1,0 +1,57 @@
+[
+  {
+    "file": "1. Test Cases and Testing Results.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 107\n"
+  },
+  {
+    "file": "10. Commercial Offer.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n\nParagraphs: 113\n"
+  },
+  {
+    "file": "11. Simplified Fixed-Price Contrac.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 95\n"
+  },
+  {
+    "file": "2. Updated Issue Log.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n\nParagraphs: 122\n"
+  },
+  {
+    "file": "3. Technical Debt List.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 37\n"
+  },
+  {
+    "file": "4. Improved Product : MVP : Functional Prototype.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n\nParagraphs: 59\n"
+  },
+  {
+    "file": "5. Updated User Stories and Product Backlog.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 129\n"
+  },
+  {
+    "file": "6. Change Request Document.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 49\n"
+  },
+  {
+    "file": "7. Change Impact Analysis.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n\nParagraphs: 62\n"
+  },
+  {
+    "file": "8. Implemented New Feature.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 59\n"
+  },
+  {
+    "file": "9. New Feature Testing Report.docx",
+    "exit_code": 1,
+    "output": "\nFAILED - Found NEW validation errors:\n  word/settings.xml: 1 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}zoom': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}percent' is required but missing.\n  word/document.xml: 2 new error(s)\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': The attribute '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val' is required but missing.\n    - Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}shd': This element is not expected. Expected is one of ( {http://schemas.openxmlformats.org/wordprocessingml/2006/main}hideMark, {http://schemas.openxmlformats.org/wordprocessingm...\n\nParagraphs: 137\n"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "name": "safestep-browser-verification",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node verify.mjs",
+    "test:api": "node verify-api.mjs",
+    "baseline": "node baseline.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
+}

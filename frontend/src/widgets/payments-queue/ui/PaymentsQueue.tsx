@@ -4,28 +4,39 @@ import { fetchPayments, HoldTimer, ScoreMeter, SignalChips, StatusBadge } from '
 import { HoldDecisionForm } from '@/features/hold-decision'
 import { useI18n } from '@/shared/i18n'
 import { formatMoney, formatTime, usePolling } from '@/shared/lib'
+import { RequestError } from '@/shared/ui'
+import { filterPayments, type StatusFilter } from '../model/filterPayments'
 
 export function PaymentsQueue({ agent }: { agent: string }) {
   const { t } = useI18n()
   const { data: payments, error, reload } = usePolling(fetchPayments)
   const [openId, setOpenId] = useState<string | null>(null)
-  const [heldOnly, setHeldOnly] = useState(true)
+  const [status, setStatus] = useState<StatusFilter>('HELD')
+  const [query, setQuery] = useState('')
 
-  const rows = (payments ?? []).filter((p) => !heldOnly || p.status === 'HELD')
+  const rows = filterPayments(payments ?? [], query, status)
 
   return (
     <section className="card">
       <header className="card__head">
         <h2>
-          {t('queue.title')}{' '}
-          {payments && <span className="count">{payments.filter((p) => p.status === 'HELD').length}</span>}</h2>
-        <label className="toggle">
-          <input type="checkbox" checked={heldOnly} onChange={(e) => setHeldOnly(e.target.checked)} /> {t('queue.heldOnly')}
-        </label>
+          {t('queue.payments')}{' '}
+          {payments && <span className="count">{rows.length}</span>}</h2>
+        <span className="muted">{t('queue.scope')}</span>
       </header>
-      {error && <p className="error">{error}</p>}
-      {rows.length === 0 ? (
-        <p className="muted">{t(heldOnly ? 'queue.emptyHeld' : 'queue.empty')}</p>
+      <div className="queue-filters">
+        <label>{t('queue.search')}<input type="search" value={query} placeholder={t('queue.searchHint')} onChange={event => setQuery(event.target.value)} /></label>
+        <label>{t('queue.status')}<select aria-label={t('queue.status')} value={status} onChange={event => setStatus(event.target.value as StatusFilter)}>
+          <option value="ALL">{t('queue.all')}</option>
+          {(['HELD', 'SENT', 'RELEASED', 'CANCELLED'] as const).map(value => <option key={value} value={value}>{t(`status.${value}`)}</option>)}
+        </select></label>
+        <button className="btn" onClick={() => { setQuery(''); setStatus('ALL') }}>{t('queue.clear')}</button>
+      </div>
+      {error && <><p className="error">{t('common.pollError')}</p><RequestError onRetry={() => void reload()} /></>}
+      {!payments && !error && <p className="muted" role="status">{t('common.loading')}</p>}
+      {payments && <p className="queue-count" aria-live="polite">{t('queue.count', { shown: rows.length, total: payments.length })}</p>}
+      {payments && rows.length === 0 ? (
+        <p className="empty-state">{t(payments.length === 0 ? 'queue.empty' : 'queue.noMatch')}</p>
       ) : (
         <div className="table-wrap">
           <table>

@@ -1,0 +1,13 @@
+Source: original Docker image built from commit 2115a8c before SIS 10-11 modifications.
+Database: isolated safestep_baseline_test, not application data.
+Command: docker compose exec -T -e SAFESTEP_TEST_DATABASE_URL=<isolated-baseline-test-url> backend uv run pytest -q
+
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /app/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.88s
+Bytecode compiled 1370 files in 67ms
