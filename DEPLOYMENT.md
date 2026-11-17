@@ -1,5 +1,42 @@
 # Railway backend + PostgreSQL / Vercel frontend
 
+## Live deployment — verified 17 November 2026
+
+| Component | Address / status |
+| --- | --- |
+| Frontend | <https://safestep-itm.vercel.app> |
+| Railway backend | <https://itm-production.up.railway.app/api/health> → HTTP 200, `{"status":"ok"}` |
+| Vercel API proxy | <https://safestep-itm.vercel.app/api/health> → HTTP 200, `{"status":"ok"}` |
+| Interactive API documentation | <https://itm-production.up.railway.app/docs> |
+| PostgreSQL | Existing `Postgres` service in the same Railway project; real demo CRUD verified |
+
+The backend's successful deployment is `f31a100d-e977-4935-87f2-eaaa1ad73f07`
+from application commit `be624ba`. It uses the Dockerfile under `/backend`,
+listens on port 8000, and checks `/api/health`. The public domain targets 8000.
+GitHub watch paths are restricted to `/backend/**` to avoid backend rebuilds for
+documentation-only commits. No paid plan was activated by this deployment work;
+Railway trial/usage limits still apply.
+
+**Hosted results:** 16 direct Railway API cases, 16 API cases through Vercel,
+and 15 Firefox browser scenarios passed. These are separate checks, not one
+combined unit-test suite. Browser checks include real demo status changes,
+operator reasons, prefix/status filters, polling, audit, RU/KZ and mobile layout.
+Warning/analytics error responses were deliberately injected by the test browser
+to verify Retry; they were not real service incidents. Outputs are kept separate
+from older coursework evidence in `SIS 10-11/evidence/hosted-2026-11-17/`.
+
+### Original build failure and its fix
+
+`Railpack could not determine how to build the app` with a listing of `backend/`,
+`frontend/`, Word files and `docker-compose.yml` means the old deployment tried
+to build the repository root. Adding a root-level `start.sh` is not the fix.
+The service must use **Root Directory `/backend`**, find its **`Dockerfile`**, and
+be redeployed **from source after the settings are changed**. A failed historical
+deployment keeps its old logs/settings; it does not describe the new successful
+deployment. The app root `/` is not the API health endpoint; use `/api/health`.
+
+The instructions below remain a reproducible setup guide.
+
 This deployment is a public **educational demo with simulated data**, not a bank.
 The project owner explicitly chose to deploy without adding authentication.
 Anyone with the API address can inspect/change demo payments; do not upload real

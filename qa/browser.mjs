@@ -1,8 +1,12 @@
 import { firefox } from 'playwright'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { resolve } from 'node:path'
 
-export const evidence = fileURLToPath(new URL('../SIS 10-11/evidence/', import.meta.url))
+// Keep hosted verification separate from the original coursework evidence.
+export const evidence = process.env.QA_EVIDENCE_DIR
+  ? resolve(process.env.QA_EVIDENCE_DIR)
+  : fileURLToPath(new URL('../SIS 10-11/evidence/', import.meta.url))
 
 export function localURL(value) {
   const url = new URL(value)

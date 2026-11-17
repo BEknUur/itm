@@ -1,0 +1,14 @@
+.git
+.claude
+.env*
+**/.env*
+**/node_modules
+**/.venv
+**/__pycache__
+**/dist
+backend
+db
+qa
+SIS 10-11
+*.docx
+image*.png

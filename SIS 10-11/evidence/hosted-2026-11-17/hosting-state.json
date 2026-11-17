@@ -1,0 +1,63 @@
+{
+  "verified_at": "2026-11-17T11:06:27.961712+00:00",
+  "railway": {
+    "project": "trustworthy-healing",
+    "service": "itm",
+    "deployment_id": "f31a100d-e977-4935-87f2-eaaa1ad73f07",
+    "status": "SUCCESS",
+    "application_commit": "be624ba1c59ab126536b48c81d9cd05023377de4",
+    "root_directory": "/backend",
+    "build": {
+      "builder": "DOCKERFILE",
+      "buildEnvironment": "V3",
+      "dockerfilePath": "Dockerfile",
+      "watchPatterns": [
+        "/backend/**"
+      ]
+    },
+    "healthcheck_path": "/api/health",
+    "watch_patterns": [
+      "/backend/**"
+    ]
+  },
+  "http_checks": [
+    {
+      "url": "https://safestep-itm.vercel.app",
+      "status": 200,
+      "cache_control": "public, max-age=0, must-revalidate"
+    },
+    {
+      "url": "https://itm-production.up.railway.app/api/health",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "url": "https://safestep-itm.vercel.app/api/health",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "url": "https://itm-production.up.railway.app/docs",
+      "status": 200,
+      "cache_control": null
+    }
+  ],
+  "test_results": {
+    "railway_api": {
+      "status": "PASS",
+      "passed": 16,
+      "evidence": "railway/after-api-results.json"
+    },
+    "vercel_api": {
+      "status": "PASS",
+      "passed": 16,
+      "evidence": "vercel/after-api-results.json"
+    },
+    "browser": {
+      "status": "PASS",
+      "passed": 15,
+      "evidence": "browser/after-browser-results.json"
+    }
+  },
+  "note": "Simulated demo records only. No hosted database reset, no paid plan upgrade. Provider credentials and database URLs are intentionally excluded."
+}

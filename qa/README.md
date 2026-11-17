@@ -8,6 +8,8 @@ bank deployment. Results are written into `SIS 10-11/evidence/`.
 For your own hosted Railway/Vercel demo, explicitly set `ALLOW_REMOTE_DEMO=1`
 and supply its HTTPS `APP_URL` / `API_URL`; see `DEPLOYMENT.md`. This opt-in is not
 application authentication and does not permit testing a third-party site.
+Set `QA_EVIDENCE_DIR` to an output directory for a new hosted run so historical
+coursework screenshots and results are not overwritten.
 
 ## Setup
 
