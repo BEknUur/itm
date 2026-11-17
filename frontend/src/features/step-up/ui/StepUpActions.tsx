@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Payment } from '@/entities/payment'
 import { errorText, useI18n } from '@/shared/i18n'
+import { Icon } from '@/shared/ui'
 import { approveStepUp, denyStepUp } from '../api/stepUp'
 
 type Props = {
@@ -28,21 +29,43 @@ export function StepUpActions({ payment, confirmLabel, denyLabel, onDone }: Prop
   }
 
   return (
-    <div className="stack">
-      <p className="muted">{t('stepUp.push', { device: payment.device_id })}</p>
-      <div className="row">
+    <div className="stepup-actions stack">
+      <div className="stepup-push-info">
+        <div className="stepup-push-info__icon">
+          <Icon name="smartphone" />
+        </div>
+        <p className="stepup-push-info__text">
+          {t('stepUp.push', { device: payment.device_id })}
+        </p>
+      </div>
+
+      <div className="stepup-buttons-grid">
         <button
-          className="btn btn--primary"
+          type="button"
+          className="btn btn--stepup-confirm"
           disabled={busy}
           onClick={() => run(() => approveStepUp(payment.id, payment.device_id))}
         >
-          {confirmLabel}
+          {busy ? <Icon name="refresh" className="spin" /> : <Icon name="check-circle" />}
+          <span>{confirmLabel}</span>
         </button>
-        <button className="btn btn--danger" disabled={busy} onClick={() => run(() => denyStepUp(payment.id))}>
-          {denyLabel}
+        <button
+          type="button"
+          className="btn btn--stepup-deny"
+          disabled={busy}
+          onClick={() => run(() => denyStepUp(payment.id))}
+        >
+          {busy ? <Icon name="refresh" className="spin" /> : <Icon name="alert-triangle" />}
+          <span>{denyLabel}</span>
         </button>
       </div>
-      {error && <p className="error">{error}</p>}
+
+      {error && (
+        <div className="error-alert" role="alert">
+          <Icon name="alert-triangle" />
+          <span>{error}</span>
+        </div>
+      )}
     </div>
   )
 }
