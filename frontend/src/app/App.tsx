@@ -4,6 +4,15 @@ import { ContactCentrePage } from '@/pages/contact-centre'
 import { MobileBankingPage } from '@/pages/mobile-banking'
 import { AnalyticsPage } from '@/pages/analytics'
 import { useI18n } from '@/shared/i18n'
+import {
+  browserStorage,
+  nextTheme,
+  readSavedTheme,
+  saveTheme,
+  themeToggleIcon,
+  themeToggleLabel,
+  type Theme,
+} from '@/shared/lib/theme'
 import { Icon } from '@/shared/ui'
 
 type View = 'client' | 'operator' | 'analytics' | 'demo'
@@ -12,27 +21,15 @@ const icons = { client: 'transfer', operator: 'headset', analytics: 'chart', dem
 export function App() {
   const { t } = useI18n()
   const [view, setView] = useState<View>('client')
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    try {
-      const saved = localStorage.getItem('safestep_theme')
-      if (saved === 'light' || saved === 'dark') return saved
-    } catch {
-      /* storage optional */
-    }
-    return 'dark'
-  })
+  const [theme, setTheme] = useState<Theme>(() => readSavedTheme(browserStorage()))
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    try {
-      localStorage.setItem('safestep_theme', theme)
-    } catch {
-      /* storage optional */
-    }
+    saveTheme(browserStorage(), theme)
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme((curr) => (curr === 'dark' ? 'light' : 'dark'))
+    setTheme(nextTheme)
   }
 
   return (
@@ -75,11 +72,12 @@ export function App() {
           <button
             type="button"
             className="theme-toggle-btn"
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            data-testid="theme-toggle"
+            aria-label={themeToggleLabel(theme)}
+            title={themeToggleLabel(theme)}
             onClick={toggleTheme}
           >
-            <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
+            <Icon name={themeToggleIcon(theme)} />
           </button>
           <LocaleSwitcher />
         </div>

@@ -1,0 +1,63 @@
+# SIS 13 / I-01: every push and pull request to main runs all automated tests,
+# so the final revision of a sprint can no longer reach main untested.
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  frontend:
+    name: Frontend tests, lint and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Unit tests (filters, deployment config, theme)
+        run: npm test
+      - name: Lint
+        run: npm run lint
+      - name: Type-check and build
+        run: npm run build
+
+  backend:
+    name: Backend tests (pytest + PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: safestep
+          POSTGRES_PASSWORD: safestep
+          POSTGRES_DB: safestep_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U safestep"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # Disposable CI-only database; the test suite refuses any other database name.
+      SAFESTEP_TEST_DATABASE_URL: postgresql+asyncpg://safestep:safestep@localhost:5432/safestep_test
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install Python 3.12 and dependencies
+        run: uv sync --python 3.12
+      - name: Run pytest
+        run: uv run pytest -q
